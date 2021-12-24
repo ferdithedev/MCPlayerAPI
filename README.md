@@ -9,6 +9,27 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 - Getting uuid (by name)
 - Getting skinURL
 
+## How to implement
+
+### Maven
+
+```xml
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.ferdithedev</groupId>
+            <artifactId>MCPlayerAPI</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+```
+
 ## Usage
 
 Create an MinecraftPlayer object, using the name or UUID:
