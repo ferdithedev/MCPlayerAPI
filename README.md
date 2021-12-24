@@ -30,6 +30,18 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
     </dependencies>
 ```
 
+### Gradle
+
+```
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.ferdithedev:MCPlayerAPI:1.0'
+}
+```
+
 ## Usage
 
 Create an MinecraftPlayer object, using the name or UUID:
