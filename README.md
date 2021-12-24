@@ -32,7 +32,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 
 #### Gradle
 
-```
+```gradle
 repositories {
     maven { url 'https://jitpack.io' }
 }
