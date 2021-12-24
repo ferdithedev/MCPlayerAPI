@@ -38,7 +38,6 @@ public class MinecraftPlayer {
     /**
      * @param uuid the uuid of the Minecraft player as a UUID
      * @see UUID
-     * @throws MinecraftPlayerAPI.FailedCallException failing call when uuid is misspelled
      */
     public MinecraftPlayer(UUID uuid) throws MinecraftPlayerAPI.FailedCallException {
         this.uuid = uuid.toString();
