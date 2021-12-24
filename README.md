@@ -11,7 +11,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 
 ## How to implement
 
-### Maven
+#### Maven
 
 ```xml
     <repositories>
@@ -30,7 +30,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
     </dependencies>
 ```
 
-### Gradle
+#### Gradle
 
 ```
 repositories {
@@ -46,7 +46,7 @@ dependencies {
 
 Create an MinecraftPlayer object, using the name or UUID:
 
-### By Name
+#### By Name
 
 ```java
 MinecraftPlayer minecraftPlayer = new MinecraftPlayer("Ferdi_the_best");
@@ -54,7 +54,7 @@ System.out.println("UUID: " + minecraftPlayer.getUUID());
 System.out.println("SkinURL: " + minecraftPlayer.getSkinURL());
 ```
 
-### By UUID
+#### By UUID
 
 ```java
 MinecraftPlayer minecraftPlayer = new MinecraftPlayer(UUID.fromString("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87"));
