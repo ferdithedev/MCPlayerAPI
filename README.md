@@ -10,6 +10,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 - Getting skinURL
 - Getting skin texture value
 - Getting skin texture signature
+- Checking availability of Minecraft name and if a UUID is taken
 
 ## How to implement
 
@@ -46,6 +47,8 @@ dependencies {
 
 ## Usage
 
+### Player Informations
+
 Create an MinecraftPlayer object, using the name or UUID:
 
 #### By Name
@@ -70,4 +73,11 @@ or
 
 ```java
 MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87");
+```
+
+### Checking Availability Of Minecraft Name/UUID
+
+```java
+System.out.println(MinecraftPlayerAPI.isMinecraftName("Ferdi"));
+System.out.println(MinecraftPlayerAPI.isUUID("5c3837ffcbb749119a97dfc3f6bbdb87"));
 ```
