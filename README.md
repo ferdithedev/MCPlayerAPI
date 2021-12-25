@@ -8,7 +8,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 - Getting name (by uuid)
 - Getting uuid (by name)
 - Getting skinURL
-- Getting Base64 encoded skin texture
+- Getting Base64 decoded skin texture
 
 ## How to implement
 
