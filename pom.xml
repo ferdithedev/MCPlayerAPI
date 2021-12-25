@@ -6,7 +6,7 @@
 
     <groupId>com.github.ferdithedev</groupId>
     <artifactId>mcplayerapi</artifactId>
-    <version>1.2</version>
+    <version>1.4</version>
     <description>With this API you can easily get
         informations about any Minecraft account.</description>
     <url>https://github.com/ferdithedev/minecraftplayerapi</url>
