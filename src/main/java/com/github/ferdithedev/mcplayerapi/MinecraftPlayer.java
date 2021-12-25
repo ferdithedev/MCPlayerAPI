@@ -188,9 +188,9 @@ public class MinecraftPlayer {
         StringBuilder builder = new StringBuilder(trimmedUUID.trim());
         try {
             builder.insert(8, "-");
-            builder.insert(12, "-");
-            builder.insert(16, "-");
-            builder.insert(20, "-");
+            builder.insert(13, "-");
+            builder.insert(18, "-");
+            builder.insert(23, "-");
         } catch (StringIndexOutOfBoundsException e){
             throw new IllegalArgumentException();
         }
