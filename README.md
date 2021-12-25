@@ -27,7 +27,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
         <dependency>
             <groupId>com.github.ferdithedev</groupId>
             <artifactId>MCPlayerAPI</artifactId>
-            <version>1.0</version>
+            <version>1.3</version>
         </dependency>
     </dependencies>
 ```
@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.ferdithedev:MCPlayerAPI:1.0'
+    implementation 'com.github.ferdithedev:MCPlayerAPI:1.3'
 }
 ```
 
@@ -51,22 +51,23 @@ Create an MinecraftPlayer object, using the name or UUID:
 #### By Name
 
 ```java
-MinecraftPlayer minecraftPlayer = new MinecraftPlayer("Ferdi_the_best");
-System.out.println("UUID: " + minecraftPlayer.getUUID());
-System.out.println("SkinURL: " + minecraftPlayer.getSkinURL());
-System.out.println(mcplayer.getTextureValue());
-System.out.println(mcplayer.getTextureSignature());
+MinecraftPlayer mcplayer = new MinecraftPlayer("Ferdi_the_best");
+System.out.println("Name: " + mcplayer.getName());
+System.out.println("SkinURL: " + mcplayer.getSkinURL());
+System.out.println("UUID: " + mcplayer.getUUID());
+System.out.println("UUIDTrimmed: " + mcplayer.getUUIDTrimmed());
+System.out.println("TextureValue: " + mcplayer.getTextureValue());
+System.out.println("TextureSignature: " + mcplayer.getTextureSignature());
 ```
 
 #### By UUID
 
 ```java
-MinecraftPlayer minecraftPlayer = new MinecraftPlayer(UUID.fromString("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87"));
-System.out.println("Name: " + minecraftPlayer.getName());
+MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87");
 ```
 
 or
 
 ```java
-MinecraftPlayer minecraftPlayer = new MinecraftPlayer(MinecraftPlayerAPI.fromTrimmed("5c3837ffcbb749119a97dfc3f6bbdb87"));
+MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87");
 ```
