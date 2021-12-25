@@ -11,6 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
+import static com.github.ferdithedev.mcplayerapi.MinecraftPlayerAPI.isUUID;
+
 public class MinecraftPlayer {
 
     private final String name;
@@ -19,8 +21,8 @@ public class MinecraftPlayer {
     private final String textureSignature;
     private final String skinURL;
 
-    private static final String apiurl1 = "https://api.mojang.com/users/profiles/minecraft/%name%";
-    private static final String apiurl2 = "https://api.mojang.com/user/profiles/%uuid%/names";
+    public static final String apiurl1 = "https://api.mojang.com/users/profiles/minecraft/%name%";
+    public static final String apiurl2 = "https://api.mojang.com/user/profiles/%uuid%/names";
     private static final String apiurl3 = "https://sessionserver.mojang.com/session/minecraft/profile/%uuid%?unsigned=false";
 
     public MinecraftPlayer(String arg) throws MinecraftPlayerAPI.NoSuchPlayerException {
@@ -49,12 +51,9 @@ public class MinecraftPlayer {
 
     private static HttpURLConnection connection;
 
-    public static boolean isUUID(String uuid) {
-        String name = getName(call(apiurl2.replace("%uuid%", uuid)));
-        return name != null && !name.isEmpty();
-    }
 
-    private static String call(String urlS) {
+
+    public static String call(String urlS) {
         BufferedReader reader;
         String line;
         StringBuilder responseContent = new StringBuilder();
@@ -103,7 +102,7 @@ public class MinecraftPlayer {
         return null;
     }
 
-    private String getUUID(String json) {
+    public static String getUUID(String json) {
         if(isJSONObject(json)) {
             JSONObject jsonObject = new JSONObject(json);
             if(jsonObject.has("id")) {
@@ -113,7 +112,7 @@ public class MinecraftPlayer {
         return null;
     }
 
-    private static String getName(String json) {
+    public static String getName(String json) {
         if(isJSONArray(json)) {
             JSONArray jsonArray = new JSONArray(json);
             List<JSONObject> list = new ArrayList<>();
@@ -127,7 +126,7 @@ public class MinecraftPlayer {
                 return newest.getString("name");
             }
         }
-        return "";
+        return null;
     }
 
     private static String getURLOfDecodedJSONObject(String value) {
