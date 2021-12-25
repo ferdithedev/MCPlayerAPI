@@ -8,7 +8,8 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 - Getting name (by uuid)
 - Getting uuid (by name)
 - Getting skinURL
-- Getting Base64 decoded skin texture
+- Getting skin texture value
+- Getting skin texture signature
 
 ## How to implement
 
@@ -53,7 +54,8 @@ Create an MinecraftPlayer object, using the name or UUID:
 MinecraftPlayer minecraftPlayer = new MinecraftPlayer("Ferdi_the_best");
 System.out.println("UUID: " + minecraftPlayer.getUUID());
 System.out.println("SkinURL: " + minecraftPlayer.getSkinURL());
-System.out.println(mcplayer.getBase64PropertiesValue());
+System.out.println(mcplayer.getTextureValue());
+System.out.println(mcplayer.getTextureSignature());
 ```
 
 #### By UUID
