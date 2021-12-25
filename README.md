@@ -1,7 +1,7 @@
 # MinecraftPlayerAPI
 
 With this API you can easily get informations about any Minecraft account.
-This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 requests per 10 minutes are possible
+This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 requests per 10 per IP address minutes are possible
 
 ### Current Features
 
