@@ -53,6 +53,7 @@ Create an MinecraftPlayer object, using the name or UUID:
 MinecraftPlayer minecraftPlayer = new MinecraftPlayer("Ferdi_the_best");
 System.out.println("UUID: " + minecraftPlayer.getUUID());
 System.out.println("SkinURL: " + minecraftPlayer.getSkinURL());
+System.out.println(mcplayer.getBase64PropertiesValue());
 ```
 
 #### By UUID
