@@ -6,7 +6,7 @@
 
     <groupId>com.github.ferdithedev</groupId>
     <artifactId>mcplayerapi</artifactId>
-    <version>1.0</version>
+    <version>1.3</version>
     <description>With this API you can easily get
         informations about any Minecraft account.</description>
     <url>https://github.com/ferdithedev/minecraftplayerapi</url>
@@ -35,6 +35,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
