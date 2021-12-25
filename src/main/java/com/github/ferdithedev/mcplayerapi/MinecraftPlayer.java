@@ -13,38 +13,36 @@ import java.util.*;
 
 public class MinecraftPlayer {
 
-    private final String name, uuid, base64PropertiesValue, skinURL;
+    private final String name, uuid, textureValue, textureSignature, skinURL;
 
     private static final String apiurl1 = "https://api.mojang.com/users/profiles/minecraft/%name%";
     private static final String apiurl2 = "https://api.mojang.com/user/profiles/%uuid%/names";
-    private static final String apiurl3 = "https://sessionserver.mojang.com/session/minecraft/profile/%uuid%";
+    private static final String apiurl3 = "https://sessionserver.mojang.com/session/minecraft/profile/%uuid%?unsigned=false";
 
-    /**
-     * @param name the name of the Minecraft player
-     * @throws MinecraftPlayerAPI.FailedCallException failing call when name is misspelled
-     */
     public MinecraftPlayer(String name) throws MinecraftPlayerAPI.FailedCallException {
         this.name = name;
         this.uuid = MinecraftPlayerAPI.fromTrimmed(getUUID(call(apiurl1.replace("%name%",name)))).toString();
         if(uuid != null) {
-            this.base64PropertiesValue = getValue(call(apiurl3.replace("%uuid%",uuid)));
+            String textureJson = call(apiurl3.replace("%uuid%",uuid));
+            this.textureValue = getTextureProperty(textureJson, "value");
+            this.textureSignature = getTextureProperty(textureJson, "signature");
         } else {
             throw new MinecraftPlayerAPI.FailedCallException("Failed to get uuid by '" + name + "'. Please check your spelling");
         }
 
-        this.skinURL = getURLOfDecodedJSONObject(base64PropertiesValue);
+        this.skinURL = getURLOfDecodedJSONObject(textureValue);
     }
 
-    /**
-     * @param uuid the uuid of the Minecraft player as a UUID
-     * @see UUID
-     */
     public MinecraftPlayer(UUID uuid) throws MinecraftPlayerAPI.FailedCallException {
         this.uuid = uuid.toString();
         this.name = getName(call(apiurl2.replace("%uuid%",uuid.toString())));
         if(name == null || name.isEmpty()) throw new MinecraftPlayerAPI.FailedCallException("Failed to get name by uuid '" + uuid + "'. Please check your spelling");
-        this.base64PropertiesValue = getValue(call(apiurl3.replace("%uuid%",uuid.toString())));
-        this.skinURL = getURLOfDecodedJSONObject(base64PropertiesValue);
+
+        String textureJson = call(apiurl3.replace("%uuid%",uuid.toString()));
+        this.textureValue = getTextureProperty(textureJson, "value");
+        this.textureSignature = getTextureProperty(textureJson, "signature");
+
+        this.skinURL = getURLOfDecodedJSONObject(textureValue);
     }
 
     private static HttpURLConnection connection;
@@ -82,15 +80,15 @@ public class MinecraftPlayer {
         return null;
     }
 
-    private String getValue(String json) {
+    private String getTextureProperty(String json, String which) {
         if(isJSONValid(json)) {
             JSONObject jsonObject = new JSONObject(json);
             if(jsonObject.has("properties")) {
                 JSONArray jsonArray = jsonObject.getJSONArray("properties");
                 if(jsonArray.getJSONObject(0) != null) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(0);
-                    if(jsonObject1.has("value")) {
-                        return jsonObject1.getString("value");
+                    if(jsonObject1.has(which)) {
+                        return jsonObject1.getString(which);
                     }
                 }
             }
@@ -143,49 +141,28 @@ public class MinecraftPlayer {
         return true;
     }
 
-    /**
-     * Get the current display name of the player
-     *
-     * @return the name of the player
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Get the current trimmed UUID as a string of the player
-     *
-     * @return the trimmed uuid of the player as string
-     */
     public String getUUIDTrimmed() {
         return uuid.replaceAll("-","");
     }
 
-    /**
-     * Get the current UUID of the player
-     *
-     * @return the uuid of the player
-     */
     public UUID getUUID() {
         return UUID.fromString(uuid);
     }
 
-    /**
-     * get the base64 decoded texture properties value of the player
-     *
-     * @return the base64 decoded texture properties value of the player
-     */
-    public String getBase64PropertiesValue() {
-        return base64PropertiesValue;
+    public String getTextureValue() {
+        return textureValue;
     }
 
-    /**
-     * get the textures.minecraft.net skin url of the player
-     *
-     * @return the skin url of the player
-     */
     public String getSkinURL() {
         return skinURL;
+    }
+
+    public String getTextureSignature() {
+        return textureSignature;
     }
 
 }
