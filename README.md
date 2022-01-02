@@ -78,6 +78,6 @@ MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87
 ### Checking Availability Of Minecraft Name/UUID
 
 ```java
-System.out.println(MinecraftPlayerAPI.isMinecraftName("Ferdi"));
+System.out.println(MinecraftPlayerAPI.isMinecraftName("Ferdi_the_best"));
 System.out.println(MinecraftPlayerAPI.isUUID("5c3837ffcbb749119a97dfc3f6bbdb87"));
 ```
