@@ -1,4 +1,4 @@
-package me.ferdithedev.mcplayerapi;
+package com.github.ferdithedev.mcplayerapi;
 
 public class MinecraftPlayerAPI {
 

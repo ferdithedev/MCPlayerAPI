@@ -1,4 +1,4 @@
-package me.ferdithedev.mcplayerapi;
+package com.github.ferdithedev.mcplayerapi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
-import static me.ferdithedev.mcplayerapi.MinecraftPlayerAPI.*;
+import static com.github.ferdithedev.mcplayerapi.MinecraftPlayerAPI.*;
 
 public class MinecraftPlayer {
 
