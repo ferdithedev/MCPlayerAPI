@@ -66,13 +66,9 @@ System.out.println("TextureSignature: " + mcplayer.getTextureSignature());
 #### By UUID
 
 ```java
-MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87");
-```
-
-or
-
-```java
 MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87");
+//or
+MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87");
 ```
 
 ### Checking Availability Of Minecraft Name/UUID
@@ -80,4 +76,5 @@ MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87
 ```java
 System.out.println(MinecraftPlayerAPI.isMinecraftName("Ferdi_the_best"));
 System.out.println(MinecraftPlayerAPI.isUUID("5c3837ffcbb749119a97dfc3f6bbdb87"));
+System.out.println(MinecraftPlayerAPI.isUUID("5c3837ff-cbb7-4911-9a97-dfc3f6bbdb87"));
 ```
