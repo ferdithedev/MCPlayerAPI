@@ -28,7 +28,7 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
         <dependency>
             <groupId>com.github.ferdithedev</groupId>
             <artifactId>MCPlayerAPI</artifactId>
-            <version>1.4</version>
+            <version>1.4.1</version>
         </dependency>
     </dependencies>
 ```
@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.ferdithedev:MCPlayerAPI:1.4'
+    implementation 'com.github.ferdithedev:MCPlayerAPI:1.4.1'
 }
 ```
 
