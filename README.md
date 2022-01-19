@@ -10,27 +10,27 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 - Getting skinURL
 - Getting skin texture value
 - Getting skin texture signature
+- Checking availability of Minecraft name and if a UUID is taken
 
 ## How to implement
 
 #### Maven
 
 ```xml
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-
-<dependencies>
-<dependency>
-    <groupId>com.ferdithedevcom.ferdithedev</groupId>
-    <artifactId>MCPlayerAPI</artifactId>
-    <version>1.3</version>
-</dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.ferdithedev</groupId>
+            <artifactId>MCPlayerAPI</artifactId>
+            <version>1.4</version>
+        </dependency>
+    </dependencies>
 ```
 
 #### Gradle
@@ -41,11 +41,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.ferdithedev:MCPlayerAPI:1.3'
+    implementation 'com.github.ferdithedev:MCPlayerAPI:1.3'
 }
 ```
 
 ## Usage
+
+### Player Informations
 
 Create an MinecraftPlayer object, using the name or UUID:
 
@@ -71,4 +73,11 @@ or
 
 ```java
 MinecraftPlayer mcplayer = new MinecraftPlayer("5c3837ffcbb749119a97dfc3f6bbdb87");
+```
+
+### Checking Availability Of Minecraft Name/UUID
+
+```java
+System.out.println(MinecraftPlayerAPI.isMinecraftName("Ferdi_the_best"));
+System.out.println(MinecraftPlayerAPI.isUUID("5c3837ffcbb749119a97dfc3f6bbdb87"));
 ```
