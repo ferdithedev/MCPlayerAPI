@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.ferdithedev:MCPlayerAPI:1.3'
+    implementation 'com.github.ferdithedev:MCPlayerAPI:1.4'
 }
 ```
 
