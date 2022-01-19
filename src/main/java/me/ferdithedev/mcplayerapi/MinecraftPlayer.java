@@ -1,4 +1,4 @@
-package com.github.ferdithedev.mcplayerapi;
+package me.ferdithedev.mcplayerapi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,35 +11,35 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
-import static com.github.ferdithedev.mcplayerapi.MinecraftPlayerAPI.isUUID;
+import static me.ferdithedev.mcplayerapi.MinecraftPlayerAPI.*;
 
 public class MinecraftPlayer {
 
     private final String name;
-    private String trimmeduuid;
+    private String trimmedUUID;
     private final String textureValue;
     private final String textureSignature;
     private final String skinURL;
 
-    public static final String apiurl1 = "https://api.mojang.com/users/profiles/minecraft/%name%";
-    public static final String apiurl2 = "https://api.mojang.com/user/profiles/%uuid%/names";
-    private static final String apiurl3 = "https://sessionserver.mojang.com/session/minecraft/profile/%uuid%?unsigned=false";
+    public static final String apiURL_1 = "https://api.mojang.com/users/profiles/minecraft/%name%";
+    public static final String apiURL_2 = "https://api.mojang.com/user/profiles/%uuid%/names";
+    private static final String apiURL_3 = "https://sessionserver.mojang.com/session/minecraft/profile/%uuid%?unsigned=false";
 
     public MinecraftPlayer(String arg) throws MinecraftPlayerAPI.NoSuchPlayerException {
         if(arg == null ||arg.isEmpty()) throw new MinecraftPlayerAPI.NoSuchPlayerException("Name/UUID can't be null or empty");
         if(isUUID(arg)) {
-            this.trimmeduuid = arg;
-            this.name = getName(call(apiurl2.replace("%uuid%",trimmeduuid)));
+            this.trimmedUUID = arg;
+            this.name = getName(call(apiURL_2.replace("%uuid%", trimmedUUID)));
         } else {
             this.name = arg;
-            this.trimmeduuid = getUUID(call(apiurl1.replace("%name%",arg)));
+            this.trimmedUUID = getUUID(call(apiURL_1.replace("%name%",arg)));
         }
 
         if(name == null || name.isEmpty()) throw new MinecraftPlayerAPI.NoSuchPlayerException("Failed to get player with uuid '" + arg + "'. Please check your spelling");
 
-        if(trimmeduuid != null) {
-            this.trimmeduuid = trimmeduuid.replaceAll("-","");
-            String textureJson = call(apiurl3.replace("%uuid%",this.trimmeduuid));
+        if(trimmedUUID != null) {
+            this.trimmedUUID = trimmedUUID.replaceAll("-","");
+            String textureJson = call(apiURL_3.replace("%uuid%",this.trimmedUUID));
             this.textureValue = getTextureProperty(textureJson, "value");
             this.textureSignature = getTextureProperty(textureJson, "signature");
         } else {
@@ -157,11 +157,11 @@ public class MinecraftPlayer {
     }
 
     public String getUUIDTrimmed() {
-        return trimmeduuid;
+        return trimmedUUID;
     }
 
     public String getUUID() {
-        return fromTrimmed(trimmeduuid);
+        return fromTrimmed(trimmedUUID);
     }
 
     public String getTextureValue() {

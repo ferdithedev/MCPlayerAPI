@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.ferdithedev</groupId>
+    <groupId>me.ferdithedev</groupId>
     <artifactId>mcplayerapi</artifactId>
-    <version>1.4</version>
+    <version>1.4.1</version>
     <description>With this API you can easily get
         informations about any Minecraft account.</description>
     <url>https://github.com/ferdithedev/minecraftplayerapi</url>

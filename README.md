@@ -16,20 +16,21 @@ This API is using the [Mojang API](https://wiki.vg/Mojang_API) so only 600 reque
 #### Maven
 
 ```xml
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.ferdithedev</groupId>
-            <artifactId>MCPlayerAPI</artifactId>
-            <version>1.3</version>
-        </dependency>
-    </dependencies>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+<dependency>
+    <groupId>com.ferdithedevcom.ferdithedev</groupId>
+    <artifactId>MCPlayerAPI</artifactId>
+    <version>1.3</version>
+</dependency>
+</dependencies>
 ```
 
 #### Gradle
@@ -40,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.ferdithedev:MCPlayerAPI:1.3'
+    implementation 'com.ferdithedev:MCPlayerAPI:1.3'
 }
 ```
 
