@@ -49,7 +49,7 @@ dependencies {
 
 ### Player Informations
 
-Create an MinecraftPlayer object, using the name or UUID:
+Create a MinecraftPlayer object, using the name or UUID:
 
 #### By Name
 
